@@ -27,6 +27,7 @@ int main()
 
         veryClose = secretNumber - guess;
 
+
         if (veryClose <= 5 && veryClose >= -5 && veryClose != 0)
         {
             cout << "Muy cerca!!\n"; 
