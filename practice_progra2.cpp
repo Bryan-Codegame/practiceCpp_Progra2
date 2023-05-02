@@ -7,10 +7,31 @@ using namespace std;
 int askNumber(string question, int high, int low = 1);
 //GUESS MY NUMBER
 void guessMyNumber();
+void vectorsPart1();
 
 
 
 int main()
+{
+    vector<int> scores(10, 0);
+    cout << "Vector size is: " << scores.size() << endl;
+    cout << "Vector capacity is: " << scores.capacity() << endl;
+
+    scores.reserve(12);
+    scores.push_back(0);
+    scores.push_back(0);
+    scores.push_back(0);
+    cout << "Vector size is: " << scores.size() << endl;
+    cout << "Vector capacity is: " << scores.capacity() << endl;
+
+
+}
+
+
+
+
+
+void vectorsPart1()
 {
     //vector<string> myStuff = { "espada", "martillo", "bomba" };
     //vector<string> inventory(10);
@@ -69,10 +90,7 @@ int main()
             cout << inventory[i] << endl;
         }
     }
-
 }
-
-
 
 int askNumber(string question, int high, int low)
 {
