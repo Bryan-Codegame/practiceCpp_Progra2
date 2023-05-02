@@ -8,27 +8,48 @@ int askNumber(string question, int high, int low = 1);
 //GUESS MY NUMBER
 void guessMyNumber();
 void vectorsPart1();
+void vectorReserve();
 
 
 
 int main()
 {
-    vector<int> scores(10, 0);
-    cout << "Vector size is: " << scores.size() << endl;
-    cout << "Vector capacity is: " << scores.capacity() << endl;
+    const int NUM_SCORES = 4;
+    int score;
 
-    scores.reserve(12);
-    scores.push_back(0);
-    scores.push_back(0);
-    scores.push_back(0);
-    cout << "Vector size is: " << scores.size() << endl;
-    cout << "Vector capacity is: " << scores.capacity() << endl;
+    vector<int>::const_iterator iter;
+    
+    vector<int> scores;
+
+    for (int i = 0; i < NUM_SCORES; i++)
+    {
+        cout << "Score " << i + 1 << endl;
+        cin >> score;
+        scores.push_back(score);
+    }
+
+    for (iter = scores.begin(); iter != scores.end(); iter++)
+    {
+        cout << *iter << endl;
+    }
 
 
 }
 
 
 
+
+void vectorReserve()
+{
+    vector<int> scores(10, 0);
+    cout << "Vector size is: " << scores.size() << endl;
+    cout << "Vector capacity is: " << scores.capacity() << endl;
+
+    scores.reserve(11);
+
+    cout << "Vector size is: " << scores.size() << endl;
+    cout << "Vector capacity is: " << scores.capacity() << endl;
+}
 
 
 void vectorsPart1()
