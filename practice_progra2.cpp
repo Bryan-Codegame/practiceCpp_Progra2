@@ -42,6 +42,34 @@ int main()
         cout << inventory[i] << endl;
         i++;
     } while (i < inventory.size());
+
+    cout << inventory[0] << " tiene " << inventory[0].size() << " letras en él. ";
+
+    cout << " Perdiste un item en la última batalla" << endl;
+
+    //Delete item from vector
+    inventory.pop_back();
+    //Iteration FOR
+    for (unsigned int i = 0; i < inventory.size(); i++)
+    {
+        cout << inventory[i] << endl;
+    }
+
+    cout << "Un enemigo ha robado todas tus armas" << endl;
+    //inventory.clear();
+
+    if (inventory.empty())
+    {
+        cout << "No tienes nada" << endl;
+    }
+    else
+    {
+        for (unsigned int i = 0; i < inventory.size(); i++)
+        {
+            cout << inventory[i] << endl;
+        }
+    }
+
 }
 
 
