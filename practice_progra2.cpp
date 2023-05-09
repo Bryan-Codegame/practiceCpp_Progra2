@@ -14,10 +14,16 @@ void vectorsPart1();
 void vectorReserve();
 void iterators();
 void iterInventory();
-
+void guessTheWord();
 
 
 int main()
+{
+    
+
+}
+
+void guessTheWord()
 {
     const int MAX_ATTEMPTS = 3;
     int attempts = 0;
@@ -69,10 +75,8 @@ int main()
     {
         cout << "\nMUY BIEN!! lo hiciste en: " << attempts << " intentos.";
     }
-    
 
 }
-
 
 void iterInventory()
 {
