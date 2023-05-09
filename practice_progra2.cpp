@@ -19,6 +19,56 @@ void iterInventory();
 
 int main()
 {
+    const int MAX_ATTEMPTS = 3;
+    int attempts = 0;
+
+    vector<string> words;
+    words.push_back("COMPUTADORA");
+    words.push_back("JUEGO");
+    words.push_back("CODIGO");
+    words.push_back("REFRIGERADOR");
+
+    srand(time(NULL));
+    int randomNumber = rand();
+    int wordsRandomIndex = (randomNumber % words.size());
+    string wordSelected = words[wordsRandomIndex];
+
+    //cout << wordSelected << endl;
+
+    random_shuffle(wordSelected.begin(), wordSelected.end());
+    cout << wordSelected << endl;
+
+    string correctWord;
+
+    do
+    {
+        cin >> correctWord;
+        transform(correctWord.begin(), correctWord.end(), correctWord.begin(), ::toupper);
+        //cout << correctWord << endl;
+
+        if (correctWord == words[wordsRandomIndex])
+        {
+            attempts++;
+            cout << "\nAdivinaste la palabra!!!\n";
+            break;
+        }
+        else
+        {
+            attempts++;
+            cout << "Fallaste humano inepto, te quedan " << MAX_ATTEMPTS - attempts << endl;
+        }
+
+    } while (attempts != MAX_ATTEMPTS);
+
+    if (attempts == MAX_ATTEMPTS)
+    {
+        cout << "\nPerdiste, date de baja, la palabra era:  \n";
+        cout << words[wordsRandomIndex];
+    }
+    else
+    {
+        cout << "\nMUY BIEN!! lo hiciste en: " << attempts << " intentos.";
+    }
     
 
 }
