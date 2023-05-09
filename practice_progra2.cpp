@@ -13,10 +13,18 @@ void guessMyNumber();
 void vectorsPart1();
 void vectorReserve();
 void iterators();
+void iterInventory();
 
 
 
 int main()
+{
+    
+
+}
+
+
+void iterInventory()
 {
     vector<string> inventory;
     inventory.push_back("Espada");
@@ -68,11 +76,7 @@ int main()
     {
         cout << *iter << endl;
     }
-
 }
-
-
-
 
 void iterators()
 {
@@ -154,7 +158,6 @@ void vectorReserve()
     cout << "Vector capacity is: " << scores.capacity() << endl;
 }
 
-
 void vectorsPart1()
 {
     //vector<string> myStuff = { "espada", "martillo", "bomba" };
@@ -227,7 +230,6 @@ int askNumber(string question, int high, int low)
 
     return number;
 }
-
 
 void guessMyNumber()
 {
