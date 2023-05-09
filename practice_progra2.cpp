@@ -9,18 +9,29 @@ using namespace std;
 int askNumber(string question, int high, int low = 1);
 //GUESS MY NUMBER
 void guessMyNumber();
+
 void vectorsPart1();
 void vectorReserve();
+void iterators();
 
 
 
 int main()
 {
+   
+
+}
+
+
+
+
+void iterators()
+{
     const int NUM_SCORES = 4;
     int score;
 
     vector<int>::const_iterator iter;
-    
+
     vector<int> scores;
 
     for (int i = 0; i < NUM_SCORES; i++)
@@ -80,11 +91,7 @@ int main()
     {
         cout << *iter << endl;
     }
-
 }
-
-
-
 
 void vectorReserve()
 {
