@@ -18,7 +18,56 @@ void iterators();
 
 int main()
 {
-   
+    vector<string> inventory;
+    inventory.push_back("Espada");
+    inventory.push_back("Escudo");
+    inventory.push_back("Martillo");
+    inventory.push_back("Rifle");
+
+    vector<string>::iterator myIterator;
+    vector<string>::const_iterator iter;
+
+    cout << "\nTus Items: \n";
+    for (iter = inventory.begin(); iter != inventory.end(); iter++)
+    {
+        cout << *iter << endl;
+    }
+
+    //Intercambiar
+    cout << "\n Intercambiaste tu " << inventory[2] << " por un arco";
+    myIterator = inventory.begin() + 2;
+    *myIterator = "Arco";
+    cout << "\nTus Items: \n";
+    for (iter = inventory.begin(); iter != inventory.end(); iter++)
+    {
+        cout << *iter << endl;
+    }
+
+
+    //SIZE
+    cout << "\n El nombre del item " << *myIterator << "tiene ";
+    cout << (*myIterator).size() << " letras";
+
+    cout << "\n El nombre del item " << *myIterator << "tiene ";
+    cout << (myIterator)->size() << " letras";
+
+    //INSERT
+    cout << "\n\nRecuperaste la bomba robada ";
+    inventory.insert(inventory.begin() + 2, "bomba");
+    cout << "\nTus Items: \n";
+    for (iter = inventory.begin(); iter != inventory.end(); iter++)
+    {
+        cout << *iter << endl;
+    }
+
+    //DELETE
+    cout << "\nTu " << inventory[1] << " fue destruido en batalla.";
+    inventory.erase(inventory.begin() + 1);
+    cout << "\nTus Items: \n";
+    for (iter = inventory.begin(); iter != inventory.end(); iter++)
+    {
+        cout << *iter << endl;
+    }
 
 }
 
