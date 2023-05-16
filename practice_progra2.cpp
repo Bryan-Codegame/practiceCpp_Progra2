@@ -16,12 +16,43 @@ void iterators();
 void iterInventory();
 void guessTheWord();
 
+//References
+void badSwap(int x, int y);
+void goodSwap(int& x, int& y);
 
 int main()
 {
-    
+    int score1 = 20;
+    int score2 = 100;
 
+    //BAD SWAP
+    badSwap(score1, score2);
+
+    cout << "Score1: " << score1 << endl;
+    cout << "Score2: " << score2 << endl;
+
+    //GOOD SWAP
+    goodSwap(score1, score2);
+
+    cout << "Score1: " << score1 << endl;
+    cout << "Score2: " << score2 << endl;
 }
+
+void badSwap(int x, int y)
+{
+    int aux = x; // aux = 20
+    x = y; // x = 100;
+    y = aux; // y = 20;
+}
+
+void goodSwap(int& x, int& y)
+{
+    int aux = x; // aux = 20
+    x = y; // x = 100;
+    y = aux; // y = 20;
+}
+
+
 
 void guessTheWord()
 {
