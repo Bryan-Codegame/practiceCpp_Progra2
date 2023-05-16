@@ -22,6 +22,13 @@ void goodSwap(int& x, int& y);
 
 int main()
 {
+    
+}
+
+
+//Swap references
+void swap()
+{
     int score1 = 20;
     int score2 = 100;
 
@@ -34,10 +41,9 @@ int main()
     //GOOD SWAP
     goodSwap(score1, score2);
 
-    cout << "Score1: " << score1 << endl;
-    cout << "Score2: " << score2 << endl;
+    cout << "Score1: " << &score1 << endl;
+    cout << "Score2: " << &score2 << endl;
 }
-
 void badSwap(int x, int y)
 {
     int aux = x; // aux = 20
