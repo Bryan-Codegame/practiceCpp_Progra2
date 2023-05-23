@@ -20,9 +20,42 @@ void guessTheWord();
 void badSwap(int x, int y);
 void goodSwap(int& x, int& y);
 
+void display(const vector<string>& vec);
+
 int main()
 {
-    
+    const int ROWS = 6;
+    const int COLUMNS = 6;
+
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLUMNS; j++)
+        {
+            cout << " 0 ";
+            
+        }
+        cout << "\n";
+    }
+}
+
+
+void inventoryDisplay()
+{
+    vector<string> inventory;
+
+    inventory.push_back("sword");
+    inventory.push_back("armor");
+    inventory.push_back("gun");
+
+    display(inventory);
+}
+void display(const vector<string>& vec)
+{
+    vector<string>::const_iterator iter;
+    for (iter = vec.begin(); iter != vec.end(); iter++)
+    {
+        cout << *iter << endl;
+    }
 }
 
 
