@@ -46,7 +46,7 @@ int main()
         cout << endl;
     }
     
-    board[1][1] = 'O';
+    board[1][1] = 'X';
 
     cout << "---TIC TAC TOE---\n";
     for (int i = 0; i < ROWS; i++)
