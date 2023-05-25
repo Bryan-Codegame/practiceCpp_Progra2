@@ -10,11 +10,14 @@ int askNumber(string question, int high, int low = 1);
 //GUESS MY NUMBER
 void guessMyNumber();
 
+void MatrixBox();
+void guessTheWord();
 void vectorsPart1();
 void vectorReserve();
 void iterators();
 void iterInventory();
-void guessTheWord();
+
+
 
 //References
 void badSwap(int x, int y);
@@ -24,15 +27,57 @@ void display(const vector<string>& vec);
 
 int main()
 {
-    const int HIGHT_WIDTH = 30;
+    const int ROWS = 3;
+    const int COLUMNS = 3;
+
+    char board[ROWS][COLUMNS] = { {'O', 'X', 'O'},
+                                  {' ', 'X', 'X'},
+                                  {'X', 'O', 'O'} };
+
+
+    cout << "---TIC TAC TOE---\n";
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLUMNS; j++)
+        {
+            cout << board[i][j];
+        }
+
+        cout << endl;
+    }
     
+    board[1][1] = 'O';
+
+    cout << "---TIC TAC TOE---\n";
+    for (int i = 0; i < ROWS; i++)
+    {
+        for (int j = 0; j < COLUMNS; j++)
+        {
+            cout << board[i][j];
+        }
+
+        cout << endl;
+    }
+
+    cout << "\nX wins!!\n";
+                                
+}
+
+
+
+
+void MatrixBox()
+{
+    const int HIGHT_WIDTH = 30;
+
 
     for (int i = 0; i < HIGHT_WIDTH; i++)
     {
         for (int j = 0; j < HIGHT_WIDTH; j++)
         {
             int sumij = i + j;
-            if (i == 0 || j == 0 || i == HIGHT_WIDTH - 1 || j == HIGHT_WIDTH - 1 || i == j || sumij == HIGHT_WIDTH - 1)
+            if (i == 0 || j == 0 || i == HIGHT_WIDTH - 1 || j == HIGHT_WIDTH - 1
+                || i == j || sumij == HIGHT_WIDTH - 1)
             {
                 cout << " 1 ";
             }
@@ -40,12 +85,11 @@ int main()
             {
                 cout << " . ";
             }
-            
+
         }
         cout << "\n";
     }
 }
-
 
 void inventoryDisplay()
 {
