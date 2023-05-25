@@ -24,14 +24,22 @@ void display(const vector<string>& vec);
 
 int main()
 {
-    const int ROWS = 6;
-    const int COLUMNS = 6;
+    const int HIGHT_WIDTH = 30;
+    
 
-    for (int i = 0; i < ROWS; i++)
+    for (int i = 0; i < HIGHT_WIDTH; i++)
     {
-        for (int j = 0; j < COLUMNS; j++)
+        for (int j = 0; j < HIGHT_WIDTH; j++)
         {
-            cout << " 0 ";
+            int sumij = i + j;
+            if (i == 0 || j == 0 || i == HIGHT_WIDTH - 1 || j == HIGHT_WIDTH - 1 || i == j || sumij == HIGHT_WIDTH - 1)
+            {
+                cout << " 1 ";
+            }
+            else
+            {
+                cout << " . ";
+            }
             
         }
         cout << "\n";
