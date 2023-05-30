@@ -27,6 +27,13 @@ void display(const vector<string>& vec);
 
 int main()
 {
+   
+                                
+}
+
+
+void TictactoePart1()
+{
     const int ROWS = 3;
     const int COLUMNS = 3;
 
@@ -45,7 +52,7 @@ int main()
 
         cout << endl;
     }
-    
+
     board[1][1] = 'X';
 
     cout << "---TIC TAC TOE---\n";
@@ -60,11 +67,7 @@ int main()
     }
 
     cout << "\nX wins!!\n";
-                                
 }
-
-
-
 
 void MatrixBox()
 {
