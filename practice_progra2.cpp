@@ -21,6 +21,8 @@ void iterators();
 void iterInventory();
 
 //Exam P2
+void BuySpace(vector<string>& inventory, unsigned int& gems, string itemFound);
+void ReplaceItem(vector<string>& inventory, string itemFound);
 string GetRandomItem(vector<string>& items);
 void DisplayInventory(vector<string>& inventory);
 bool AskYesNo(string question);
@@ -66,10 +68,10 @@ int main()
             switch (option)
             {
             case 1:
-                //ReplaceItem
+                ReplaceItem(inventory, itemFound);
                 break;
             case 3:
-                //BuySpace
+                BuySpace(inventory, gems, itemFound);
                 break;
             default:
                 break;
@@ -92,6 +94,32 @@ int main()
     cout << "\nVuelve pronto!!\n";
 
 }
+
+void BuySpace(vector<string>& inventory, unsigned int& gems ,string itemFound)
+{
+    if (gems >= SPACE_COST)
+    {
+        cout << "\n Espacio comprado con éxito!!\n";
+        inventory.push_back(itemFound);
+        gems -= SPACE_COST;
+    }
+    else
+    {
+        cout << "\nNo tienes gemas suficientes!!\n";
+    }
+}
+
+void ReplaceItem(vector<string>& inventory, string itemFound)
+{
+    vector<string>::iterator iter;
+    int itemChosen = 0;
+    cout << "\n¿Qué item deseas reemplazar?\n";
+    DisplayInventory(inventory);
+    cin >> itemChosen;
+    iter = inventory.begin() + itemChosen;
+    *iter = itemFound;
+}
+
 
 string GetRandomItem(vector<string>& items)
 {
@@ -509,14 +537,31 @@ void vectorsPart1()
 
 int askNumber(string question, int high, int low)
 {
-    int number = 0;
+    string input;
+    bool isValid = false;
+    //int number = 0;
 
     do {
         cout << question << "entre " << low << " y " << high << endl;
-        cin >> number;
-    } while (number > high || number < low);
+        getline(cin, input);
 
-    return number;
+        for (char c : input)
+        {
+            if (!isdigit(c)) 
+            {
+                isValid = false;
+                break;
+            }
+        }
+
+        if (!isValid)
+        {
+            cout << "\nEntrada inválida, por favor elige solo números.\n";
+        }
+    } while (!isValid || input.empty());
+    
+    //number > high || number < low
+    return stoi(input);
 }
 
 void guessMyNumber()
