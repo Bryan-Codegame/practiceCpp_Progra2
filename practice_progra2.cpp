@@ -539,6 +539,54 @@ int askNumber(string question, int high, int low)
 {
     string input;
     bool isValid = false;
+    bool isRangeValid = false;
+    int number = 0;
+
+    cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+
+    do {
+        cout << question << "entre " << low << " y " << high << endl;
+
+        getline(cin, input);
+
+        for (char c : input)
+        {
+            if (!isdigit(c))
+            {
+                isValid = false;
+                break;
+            }
+            else
+            {
+                isValid = true;
+                break;
+            }
+        }
+
+        if (!isValid)
+        {
+            cout << "\nEntrada inválida, por favor elige solo números.\n";
+        }
+        else
+        {
+            number = stoi(input);
+            isRangeValid = number <= high && number >= low;
+        }
+
+        if (!isRangeValid && isValid)
+        {
+            cout << "\nEntrada inválida, elige un número dentro del rango establecido.\n";
+        }
+
+    } while (!isValid || input.empty() || !isRangeValid);
+
+    return number;
+}
+
+int askNumber2(string question, int high, int low)
+{
+    string input;
+    bool isValid = false;
     //int number = 0;
 
     do {
