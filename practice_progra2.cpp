@@ -83,17 +83,47 @@ int main()
     cout << *pScore << endl;//5000
 
 
+    //String Pointer
     string str = "score";
     string* pStr = &str;
 
     cout << str << endl; //score
     cout << *pStr << endl; // score
 
-    cout << str.size() << endl;
-    cout << (*pStr).size() << endl;
+    cout << str.size() << endl; //5
+    cout << (*pStr).size() << endl; //5
+    cout << pStr->size() << endl; //5
 
+    /************CONSTANT POINTER**************/
+    //Constant Pointer
+    int lives = 5;
+    int* const pLives = &lives;
 
+    //NO VALID
+    //int maxLives = 10;
+    //pLives = &maxLives;
+
+     /************A CONSTANT TO A POINTER**************/
+
+    //A pointer to a Constant
+    int initialDefense = 100;
+    const int* pNumber = &initialDefense;
+
+    int defense = 32;
+    pNumber = &defense;
+
+    //VALID
+    defense *= 2;
+    cout << defense << endl;
+    cout << *pNumber << endl;
     
+    //NO VALID
+    //*pNumber *= 2;
+    
+
+    /************CONSTANT POINTER TO A CONSTANT**************/
+    int bonus = 40;
+    const int* const pBONUS = &bonus;
 }
 
 
