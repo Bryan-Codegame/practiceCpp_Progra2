@@ -21,6 +21,7 @@ void iterators();
 void iterInventory();
 
 //Exam P2
+void InventoryPro();
 void BuySpace(vector<string>& inventory, unsigned int& gems, string itemFound);
 void ReplaceItem(vector<string>& inventory, string itemFound);
 string GetRandomItem(vector<string>& items);
@@ -33,14 +34,104 @@ const int SPACE_COST = 6;
 const int FREE_ITEMS = 3;
 
 //References
+void swap();
 void badSwap(int x, int y);
 void goodSwap(int& x, int& y);
 
 void display(const vector<string>& vec);
 
+
+
 int main()
 {
     std::setlocale(LC_ALL, "es_ES.UTF-8");
+    
+    int score = 1000;
+    int* pScore = &score;
+
+    //Dirección de memoria
+    cout << &score << endl; //00000078886FF8D4
+    cout << pScore << endl; //00000078886FF8D4
+
+    //Contenido de la memoria
+    cout << score << endl; //1000
+    cout << *pScore << endl;//1000
+
+
+
+    score += 500;
+    //Contenido de la memoria
+    cout << score << endl; //1500
+    cout << *pScore << endl;//1500
+
+    *pScore += 500;
+    //Contenido de la memoria
+    cout << score << endl; //2000
+    cout << *pScore << endl;//2000
+
+    
+    //NEW SCORE
+    //Asignar puntero a otro espacio de memoria
+    int newScore = 5000;
+    pScore = &newScore;
+    //Dirección de memoria
+    cout << &newScore << endl; //000000EE55EFFCF4
+    cout << pScore << endl; //000000EE55EFFCF4
+
+    //Contenido de la memoria
+    cout << newScore << endl; //5000
+    cout << *pScore << endl;//5000
+
+
+    string str = "score";
+    string* pStr = &str;
+
+    cout << str << endl; //score
+    cout << *pStr << endl; // score
+
+    cout << str.size() << endl;
+    cout << (*pStr).size() << endl;
+
+
+    
+}
+
+
+//Swap references
+void swap()
+{
+    int score1 = 20;
+    int score2 = 100;
+
+    //BAD SWAP
+    badSwap(score1, score2);
+
+    cout << "Score1: " << score1 << endl;
+    cout << "Score2: " << score2 << endl;
+
+    //GOOD SWAP
+    goodSwap(score1, score2);
+
+    cout << "Score1: " << &score1 << endl;
+    cout << "Score2: " << &score2 << endl;
+}
+void badSwap(int x, int y)
+{
+    int aux = x; // aux = 20
+    x = y; // x = 100;
+    y = aux; // y = 20;
+}
+
+void goodSwap(int& x, int& y)
+{
+    int aux = x; // aux = 20
+    x = y; // x = 100;
+    y = aux; // y = 20;
+}
+
+
+void InventoryPro()
+{
     unsigned int gems = 8;
 
     //Items
@@ -81,8 +172,8 @@ int main()
         {
             inventory.push_back(itemFound);
         }
-        
-        
+
+
 
         //DisplayItems
         DisplayInventory(inventory);
@@ -92,7 +183,6 @@ int main()
     } while (isContinue);
 
     cout << "\nVuelve pronto!!\n";
-
 }
 
 void BuySpace(vector<string>& inventory, unsigned int& gems ,string itemFound)
@@ -251,37 +341,7 @@ void display(const vector<string>& vec)
 }
 
 
-//Swap references
-void swap()
-{
-    int score1 = 20;
-    int score2 = 100;
 
-    //BAD SWAP
-    badSwap(score1, score2);
-
-    cout << "Score1: " << score1 << endl;
-    cout << "Score2: " << score2 << endl;
-
-    //GOOD SWAP
-    goodSwap(score1, score2);
-
-    cout << "Score1: " << &score1 << endl;
-    cout << "Score2: " << &score2 << endl;
-}
-void badSwap(int x, int y)
-{
-    int aux = x; // aux = 20
-    x = y; // x = 100;
-    y = aux; // y = 20;
-}
-
-void goodSwap(int& x, int& y)
-{
-    int aux = x; // aux = 20
-    x = y; // x = 100;
-    y = aux; // y = 20;
-}
 
 
 
