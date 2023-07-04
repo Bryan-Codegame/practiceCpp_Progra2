@@ -40,7 +40,10 @@ void goodSwap(int& x, int& y);
 
 void display(const vector<string>& vec);
 
-
+//Pointers
+void swapPointers();
+void badSwapP(int px, int py);
+void goodSwapP(int* const px, int* const py);
 
 int main()
 {
@@ -124,8 +127,41 @@ int main()
     /************CONSTANT POINTER TO A CONSTANT**************/
     int bonus = 40;
     const int* const pBONUS = &bonus;
+
+    swapPointers();
 }
 
+//SwapPointers
+void swapPointers()
+{
+    int score1 = 20;
+    int score2 = 100;
+
+    //BAD SWAP
+    badSwapP(score1, score2);
+
+    cout << "Score1: " << score1 << endl;
+    cout << "Score2: " << score2 << endl;
+
+    //GOOD SWAP
+    goodSwapP(&score1, &score2);
+
+    cout << "Score1: " << &score1 << endl;
+    cout << "Score2: " << &score2 << endl;
+}
+void badSwapP(int x, int y)
+{
+    int aux = x; // aux = 20
+    x = y; // x = 100;
+    y = aux; // y = 20;
+}
+
+void goodSwapP(int* const px, int* const py)
+{
+    int aux = *px; // aux = 20
+    *px = *py; // x = 100;
+    *py = aux; // y = 20;
+}
 
 //Swap references
 void swap()
@@ -142,8 +178,8 @@ void swap()
     //GOOD SWAP
     goodSwap(score1, score2);
 
-    cout << "Score1: " << &score1 << endl;
-    cout << "Score2: " << &score2 << endl;
+    cout << "Score1: " << score1 << endl;
+    cout << "Score2: " << score2 << endl;
 }
 void badSwap(int x, int y)
 {
